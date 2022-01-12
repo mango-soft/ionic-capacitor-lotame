@@ -15,4 +15,12 @@ public class MangoLotamePlugin: CAPPlugin {
             "value": implementation.echo(value)
         ])
     }
+    
+    @objc func getContacts(_ call: CAPPluginCall) {
+        let value = call.getString("filter") ?? ""
+        
+        call.resolve([
+            "results": ["OK Working in iOS"]
+        ])
+    }
 }

@@ -7,4 +7,17 @@ export class MangoLotameWeb extends WebPlugin implements MangoLotamePlugin {
     console.log('ECHO', options);
     return options;
   }
+
+  async getContacts(filter: string): Promise<{ results: any[] }> {
+    console.log('filter: ', filter);
+    return {
+      results: [
+        {
+          firsName: 'Dummy',
+          lastName: 'Entry',
+          telephone: '123456',
+        }
+      ]
+    }
+  }
 }
