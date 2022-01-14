@@ -1,5 +1,6 @@
 import Foundation
 import Capacitor
+import LotameDMP
 
 /**
  * Please read the Capacitor iOS Plugin Development Guide
@@ -18,6 +19,23 @@ public class MangoLotamePlugin: CAPPlugin {
     
     @objc func getContacts(_ call: CAPPluginCall) {
         let value = call.getString("filter") ?? ""
+
+         DMP.initialize("16254")
+
+         DMP.addBehaviorData("value", forType: "type")
+         DMP.addBehaviorData(behaviorId: 1)
+
+         DMP.sendBehaviorData(){
+            result in
+            if result.isSuccess{
+                print("VCA Lotame Working from Mango Plugin")
+            } else{
+                print("VCA Lotame Failure from Mango Plugin")
+                print(result)
+            }
+         }
+
+
         
         call.resolve([
             "results": ["OK Working in iOS"]

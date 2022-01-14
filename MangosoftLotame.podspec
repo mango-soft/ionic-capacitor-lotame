@@ -14,4 +14,11 @@ Pod::Spec.new do |s|
   s.ios.deployment_target  = '12.0'
   s.dependency 'Capacitor'
   s.swift_version = '5.1'
+
+  # External dependencies
+  s.dependency 'LotameDMP', '~> 5.3'
+
+  # s.vendored_frameworks = 'ios/Carthage/Build/iOS/LotameDMP.framework/**'
+  # s.resource = 'ios/Pods/YourResourceFolder/YourBundle.bundle'
+  # s.xcconfig = {'ENABLE_BITCODE' => 'NO'}
 end
