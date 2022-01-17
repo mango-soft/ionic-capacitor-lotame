@@ -22,41 +22,68 @@ public class MangoLotamePlugin: CAPPlugin {
     /// - clientId: Lotame Client ID.
     @objc func initialize(_ call: CAPPluginCall) {
         let clientId = call.getString("clientId") ?? ""
-        print("Lotame Client ID: ", clientId)
+        print("Lotame plugin Client ID: ", clientId)
         
         DMP.initialize(clientId)
 
-        var resultData = ""
-        DMP.sendBehaviorData() {
-            result in
-            if result.isSuccess{
-                resultData = "Lotame Working from Mango Plugin"
-                print(resultData)
-                
-                call.resolve([
-                    "message": resultData
-                ])
-            } else {
-                resultData = "Lotame Failure from Mango Plugin"
-                print(resultData)
-                
-                call.resolve([
-                    "message": resultData
-                ])
-            }
-        }
+//        var resultData = ""
+//        DMP.sendBehaviorData() {
+//            result in
+//            if result.isSuccess{
+//                resultData = "Lotame Working from Mango Plugin"
+//                print(resultData)
+//
+//                call.resolve([
+//                    "message": resultData
+//                ])
+//            } else {
+//                resultData = "Lotame Failure from Mango Plugin"
+//                print(resultData)
+//
+//                call.resolve([
+//                    "message": resultData
+//                ])
+//            }
+//        }
     }
     
-    @objc func getContacts(_ call: CAPPluginCall) {
-        _ = call.getString("filter") ?? ""
-
-//         DMP.initialize("16254")
-//
-//         DMP.addBehaviorData("value", forType: "type")
-//         DMP.addBehaviorData(behaviorId: 1)
+    /// Add Behavior Data.
+    ///
+    /// - clientId: Lotame Client ID.
+    @objc func addBehavior(_ call: CAPPluginCall) {
+        let dataBehavior = call.getObject("data")
+        print("Lotame plugin addBehavior data: ", dataBehavior as Any)
         
-        call.resolve([
-            "results": ["OK Working in iOS"]
-        ])
+        if ((dataBehavior) != nil
+            && ((dataBehavior?["value"]) != nil)
+            && ((dataBehavior?["forType"]) != nil)) {
+                
+            DMP.addBehaviorData(dataBehavior?["value"] as? String,
+                                forType: dataBehavior?["forType"] as! String)
+            
+            // DMP.addBehaviorData("value", forType: "type")
+            // DMP.addBehaviorData(behaviorId: 1)
+            
+            var resultData = ""
+            DMP.sendBehaviorData() {
+                result in
+                if result.isSuccess{
+                    resultData = "Lotame Plugin added data"
+                    print(resultData)
+                } else {
+                    resultData = "Lotame Plugin failure data"
+                    print(resultData)
+                }
+                
+                call.resolve([
+                    "message": resultData,
+                    "data": dataBehavior as Any
+                ])
+            }
+        } else {
+            call.resolve([
+                "message": "Lotame Plugin error in the data to send"
+            ])
+        }
     }
 }

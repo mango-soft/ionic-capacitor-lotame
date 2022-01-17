@@ -15,7 +15,7 @@ npx cap sync
 
 * [`echo(...)`](#echo)
 * [`initialize(...)`](#initialize)
-* [`getContacts(...)`](#getcontacts)
+* [`addBehavior(...)`](#addbehavior)
 * [Interfaces](#interfaces)
 
 </docgen-index>
@@ -53,17 +53,17 @@ initialize(options: { clientId: string; }) => Promise<IGenericResult>
 --------------------
 
 
-### getContacts(...)
+### addBehavior(...)
 
 ```typescript
-getContacts(filter: string) => Promise<{ results: any[]; }>
+addBehavior(options: { data: any; }) => Promise<IGenericResult>
 ```
 
-| Param        | Type                |
-| ------------ | ------------------- |
-| **`filter`** | <code>string</code> |
+| Param         | Type                        |
+| ------------- | --------------------------- |
+| **`options`** | <code>{ data: any; }</code> |
 
-**Returns:** <code>Promise&lt;{ results: any[]; }&gt;</code>
+**Returns:** <code>Promise&lt;<a href="#igenericresult">IGenericResult</a>&gt;</code>
 
 --------------------
 
@@ -76,5 +76,6 @@ getContacts(filter: string) => Promise<{ results: any[]; }>
 | Prop          | Type                |
 | ------------- | ------------------- |
 | **`message`** | <code>string</code> |
+| **`data`**    | <code>any</code>    |
 
 </docgen-api>

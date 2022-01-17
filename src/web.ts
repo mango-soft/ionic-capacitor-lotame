@@ -9,6 +9,12 @@ export class MangoLotameWeb extends WebPlugin implements MangoLotamePlugin {
     return options;
   }
 
+  /**
+   * Initialize Lotame.
+   * 
+   * @param options 
+   * @returns 
+   */
   async initialize(options: { clientId: string }): Promise<IGenericResult> {
     
     return {
@@ -16,16 +22,11 @@ export class MangoLotameWeb extends WebPlugin implements MangoLotamePlugin {
     }
   }
 
-  async getContacts(filter: string): Promise<{ results: any[] }> {
-    console.log('filter: ', filter);
+  async addBehavior(options: { data: any }): Promise<IGenericResult> {
+    
     return {
-      results: [
-        {
-          firsName: 'Dummy',
-          lastName: 'Entry',
-          telephone: '123456',
-        }
-      ]
+      message: 'Lotame behavior added for Web',
+      data: options.data
     }
   }
 }
