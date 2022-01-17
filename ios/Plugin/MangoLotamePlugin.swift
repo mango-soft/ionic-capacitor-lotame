@@ -16,26 +16,44 @@ public class MangoLotamePlugin: CAPPlugin {
             "value": implementation.echo(value)
         ])
     }
-    
-    @objc func getContacts(_ call: CAPPluginCall) {
-        let value = call.getString("filter") ?? ""
 
-         DMP.initialize("16254")
+    /// Initialize Lotame.
+    ///
+    /// - clientId: Lotame Client ID.
+    @objc func initialize(_ call: CAPPluginCall) {
+        let clientId = call.getString("clientId") ?? ""
+        print("Lotame Client ID: ", clientId)
+        
+        DMP.initialize(clientId)
 
-         DMP.addBehaviorData("value", forType: "type")
-         DMP.addBehaviorData(behaviorId: 1)
-
-         DMP.sendBehaviorData(){
+        var resultData = ""
+        DMP.sendBehaviorData() {
             result in
             if result.isSuccess{
-                print("VCA Lotame Working from Mango Plugin")
-            } else{
-                print("VCA Lotame Failure from Mango Plugin")
-                print(result)
+                resultData = "Lotame Working from Mango Plugin"
+                print(resultData)
+                
+                call.resolve([
+                    "message": resultData
+                ])
+            } else {
+                resultData = "Lotame Failure from Mango Plugin"
+                print(resultData)
+                
+                call.resolve([
+                    "message": resultData
+                ])
             }
-         }
+        }
+    }
+    
+    @objc func getContacts(_ call: CAPPluginCall) {
+        _ = call.getString("filter") ?? ""
 
-
+//         DMP.initialize("16254")
+//
+//         DMP.addBehaviorData("value", forType: "type")
+//         DMP.addBehaviorData(behaviorId: 1)
         
         call.resolve([
             "results": ["OK Working in iOS"]

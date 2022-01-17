@@ -5,4 +5,9 @@ import Foundation
         print(value)
         return value
     }
+    
+    @objc public func initialize(_ clientId: String) -> String {
+        print(clientId)
+        return clientId
+    }
 }
