@@ -26,25 +26,21 @@ public class MangoLotamePlugin: CAPPlugin {
         
         DMP.initialize(clientId)
 
-//        var resultData = ""
-//        DMP.sendBehaviorData() {
-//            result in
-//            if result.isSuccess{
-//                resultData = "Lotame Working from Mango Plugin"
-//                print(resultData)
-//
-//                call.resolve([
-//                    "message": resultData
-//                ])
-//            } else {
-//                resultData = "Lotame Failure from Mango Plugin"
-//                print(resultData)
-//
-//                call.resolve([
-//                    "message": resultData
-//                ])
-//            }
-//        }
+        var resultData = ""
+        DMP.sendBehaviorData() {
+            result in
+            if result.isSuccess{
+                resultData = "Lotame Working from Mango Plugin"
+                print(resultData)
+            } else {
+                resultData = "Lotame Failure from Mango Plugin"
+                print(resultData)
+            }
+            
+            call.resolve([
+                "message": resultData
+            ])
+        }
     }
     
     /// Add Behavior Data.
