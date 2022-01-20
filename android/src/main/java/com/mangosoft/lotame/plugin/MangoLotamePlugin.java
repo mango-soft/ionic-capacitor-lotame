@@ -25,7 +25,6 @@ import org.json.JSONObject;
 public class MangoLotamePlugin extends Plugin {
     private Context thisContext;
 
-    private static final int CLIENT_ID = 16254;
     private static final int TIMEOUT_MILLIS = 5000;
     private CrowdControl ccHttp;
     private CrowdControl ccHttps;
