@@ -36,7 +36,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class MangoLotame extends Context {
+public class MangoSoftLotame extends Context {
 
     public String echo(String value) {
         Log.i("Echo", value);

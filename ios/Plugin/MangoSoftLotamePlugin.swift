@@ -6,9 +6,9 @@ import LotameDMP
  * Please read the Capacitor iOS Plugin Development Guide
  * here: https://capacitorjs.com/docs/plugins/ios
  */
-@objc(MangoLotamePlugin)
-public class MangoLotamePlugin: CAPPlugin {
-    private let implementation = MangoLotame()
+@objc(MangoSoftLotamePlugin)
+public class MangoSoftLotamePlugin: CAPPlugin {
+    private let implementation = MangoSoftLotame()
 
     @objc func echo(_ call: CAPPluginCall) {
         let value = call.getString("value") ?? ""

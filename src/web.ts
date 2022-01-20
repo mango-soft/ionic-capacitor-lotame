@@ -1,9 +1,9 @@
 import { WebPlugin } from '@capacitor/core';
 
-import type { MangoLotamePlugin } from './definitions';
+import type { MangoSoftLotamePlugin } from './definitions';
 import type { IGenericResponse } from './generic.interface';
 
-export class MangoLotameWeb extends WebPlugin implements MangoLotamePlugin {
+export class MangoSoftLotameWeb extends WebPlugin implements MangoSoftLotamePlugin {
   async echo(options: { value: string }): Promise<{ value: string }> {
     console.log('ECHO', options);
     return options;

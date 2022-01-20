@@ -12,10 +12,10 @@ npx cap sync
 ## Example
 
 ```typescript
-import { MangoLotame } from '@mangosoft/ionic-capacitor-lotame';
+import { MangoSoftLotame } from '@mangosoft/ionic-capacitor-lotame';
 
 // Lotame is a singleton that must be initialized with either a single client id.
-const lotameInit = await MangoLotame.initialize({ clientId: <CLIENT_ID> });
+const lotameInit = await MangoSoftLotame.initialize({ clientId: <CLIENT_ID> });
 console.log('Lotame initialize response: ', JSON.stringify(lotameInit));
 ```
 
@@ -28,7 +28,7 @@ Where
 Behavior Data is collected through this call:
 
 ```typescript
-const resultBehavior = await MangoLotame.addBehavior({
+const resultBehavior = await MangoSoftLotame.addBehavior({
     data: { value: "value", forType: "type" }
 });
 ```

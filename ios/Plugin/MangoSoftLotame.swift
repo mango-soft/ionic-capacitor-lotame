@@ -1,6 +1,6 @@
 import Foundation
 
-@objc public class MangoLotame: NSObject {
+@objc public class MangoSoftLotame: NSObject {
     @objc public func echo(_ value: String) -> String {
         print(value)
         return value

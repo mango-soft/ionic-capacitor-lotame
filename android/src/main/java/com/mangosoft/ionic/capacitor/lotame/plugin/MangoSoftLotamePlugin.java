@@ -21,15 +21,15 @@ import android.content.Context;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-@CapacitorPlugin(name = "MangoLotame")
-public class MangoLotamePlugin extends Plugin {
+@CapacitorPlugin(name = "MangoSoftLotame")
+public class MangoSoftLotamePlugin extends Plugin {
     private Context thisContext;
 
     private static final int TIMEOUT_MILLIS = 5000;
     private CrowdControl ccHttp;
     private CrowdControl ccHttps;
 
-    private MangoLotame implementation = new MangoLotame();
+    private MangoSoftLotame implementation = new MangoSoftLotame();
 
     @Override
     public void load() {

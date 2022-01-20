@@ -4,7 +4,7 @@ export default {
     {
       file: 'dist/plugin.js',
       format: 'iife',
-      name: 'capacitorMangoLotame',
+      name: 'capacitorMangoSoftLotame',
       globals: {
         '@capacitor/core': 'capacitorExports',
       },

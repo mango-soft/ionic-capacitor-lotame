@@ -1,10 +1,10 @@
 import { registerPlugin } from '@capacitor/core';
 
-import type { MangoLotamePlugin } from './definitions';
+import type { MangoSoftLotamePlugin } from './definitions';
 
-const MangoLotame = registerPlugin<MangoLotamePlugin>('MangoLotame', {
-  web: () => import('./web').then(m => new m.MangoLotameWeb()),
+const MangoSoftLotame = registerPlugin<MangoSoftLotamePlugin>('MangoSoftLotame', {
+  web: () => import('./web').then(m => new m.MangoSoftLotameWeb()),
 });
 
 export * from './definitions';
-export { MangoLotame };
+export { MangoSoftLotame };
