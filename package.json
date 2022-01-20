@@ -1,6 +1,6 @@
 {
   "name": "@mangosoft/ionic-capacitor-lotame",
-  "version": "0.0.2",
+  "version": "0.1.3",
   "description": "Ionic/Capacitor Bridge Plugin for easy usage of Lotame native iOS and Android SDK",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
