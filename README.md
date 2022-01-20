@@ -1,19 +1,45 @@
-# @mangosoft/lotame
+# @mangosoft/ionic-capacitor-lotame
 
-Plugin to integrate Lotame in Ionic
+Ionic/Capacitor Bridge Plugin for easy usage of Lotame native iOS and Android SDK
 
 ## Install
 
 ```bash
-npm install @mangosoft/lotame
+npm install @mangosoft/ionic-capacitor-lotame
 npx cap sync
 ```
+
+## Example
+
+```typescript
+import { MangoLotame } from '@mangosoft/ionic-capacitor-lotame';
+
+// Lotame is a singleton that must be initialized with either a single client id.
+const lotameInit = await MangoLotame.initialize({ clientId: <CLIENT_ID> });
+console.log('Lotame initialize response: ', JSON.stringify(lotameInit));
+```
+
+Where
+
+**CLIENT_ID** Unique Lotame Client ID.
+
+### Send Behaviors
+
+Behavior Data is collected through this call:
+
+```typescript
+const resultBehavior = await MangoLotame.addBehavior({
+    data: { value: "value", forType: "type" }
+});
+```
+Response have this format:
+
+* [Interfaces](#interfaces)
 
 ## API
 
 <docgen-index>
 
-* [`echo(...)`](#echo)
 * [`initialize(...)`](#initialize)
 * [`addBehavior(...)`](#addbehavior)
 * [Interfaces](#interfaces)
@@ -23,32 +49,17 @@ npx cap sync
 <docgen-api>
 <!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
 
-### echo(...)
-
-```typescript
-echo(options: { value: string; }) => Promise<{ value: string; }>
-```
-
-| Param         | Type                            |
-| ------------- | ------------------------------- |
-| **`options`** | <code>{ value: string; }</code> |
-
-**Returns:** <code>Promise&lt;{ value: string; }&gt;</code>
-
---------------------
-
-
 ### initialize(...)
 
 ```typescript
-initialize(options: { clientId: string; }) => Promise<IGenericResult>
+initialize(options: { clientId: string; }) => Promise<IGenericResponse>
 ```
 
 | Param         | Type                               |
 | ------------- | ---------------------------------- |
 | **`options`** | <code>{ clientId: string; }</code> |
 
-**Returns:** <code>Promise&lt;<a href="#igenericresult">IGenericResult</a>&gt;</code>
+**Returns:** <code>Promise&lt;<a href="#igenericresponse">IGenericResponse</a>&gt;</code>
 
 --------------------
 
@@ -56,14 +67,14 @@ initialize(options: { clientId: string; }) => Promise<IGenericResult>
 ### addBehavior(...)
 
 ```typescript
-addBehavior(options: { data: any; }) => Promise<IGenericResult>
+addBehavior(options: { data: any; }) => Promise<IGenericResponse>
 ```
 
 | Param         | Type                        |
 | ------------- | --------------------------- |
 | **`options`** | <code>{ data: any; }</code> |
 
-**Returns:** <code>Promise&lt;<a href="#igenericresult">IGenericResult</a>&gt;</code>
+**Returns:** <code>Promise&lt;<a href="#igenericresponse">IGenericResponse</a>&gt;</code>
 
 --------------------
 
@@ -71,7 +82,7 @@ addBehavior(options: { data: any; }) => Promise<IGenericResult>
 ### Interfaces
 
 
-#### IGenericResult
+#### IGenericResponse
 
 | Prop          | Type                |
 | ------------- | ------------------- |
