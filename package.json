@@ -1,5 +1,5 @@
 {
-  "name": "@mangosoft/lotame",
+  "name": "@mangosoft/ionic-capacitor-lotame",
   "version": "0.0.1",
   "description": "Plugin to integrate Lotame in Ionic",
   "main": "dist/plugin.cjs.js",

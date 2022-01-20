@@ -1,6 +1,6 @@
 
 // Generic result interface
-export interface IGenericResult {
+export interface IGenericResponse {
     message: string;
     data?: any;
   }

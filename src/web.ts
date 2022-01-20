@@ -1,7 +1,7 @@
 import { WebPlugin } from '@capacitor/core';
 
 import type { MangoLotamePlugin } from './definitions';
-import type { IGenericResult } from './generic.interface';
+import type { IGenericResponse } from './generic.interface';
 
 export class MangoLotameWeb extends WebPlugin implements MangoLotamePlugin {
   async echo(options: { value: string }): Promise<{ value: string }> {
@@ -15,14 +15,14 @@ export class MangoLotameWeb extends WebPlugin implements MangoLotamePlugin {
    * @param options 
    * @returns 
    */
-  async initialize(options: { clientId: string }): Promise<IGenericResult> {
+  async initialize(options: { clientId: string }): Promise<IGenericResponse> {
     
     return {
       message: 'Lotame Working from Mango Plugin for Web: ' + options
     }
   }
 
-  async addBehavior(options: { data: any }): Promise<IGenericResult> {
+  async addBehavior(options: { data: any }): Promise<IGenericResponse> {
     
     return {
       message: 'Lotame behavior added for Web',
